@@ -7,9 +7,13 @@ class Solution {
         }
         String strX = String.valueOf(x);
 		StringBuffer sb = new StringBuffer(strX);
-		String dst = sb.reverse().toString();
-        int result = Integer.parseInt(dst);
-        if(isMinus) result = result*-1;
-        return result;
+        String dst = sb.reverse().toString();
+        try{
+            int result = Integer.parseInt(dst);
+            if(isMinus) result = result*-1;
+            return result;
+        }catch(NumberFormatException e){
+            return 0;
+        }
     }
 }
