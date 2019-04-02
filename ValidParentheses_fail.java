@@ -1,22 +1,25 @@
 class Solution {
     public boolean isValid(String s) {
+        if (s.length() %2 == 1 || !isOpenBracket(s.charAt(0))){
+            return false;
+        }
         List<Character> cList = new ArrayList<>();
-        for(int i=0;i<s.length();i++){
+        for(int i = 0;i<s.length();i++){
             char c = s.charAt(i);
-            if(isOpenBracket(c)){
+            if (isOpenBracket(c)){
                 cList.add(c);
             }else{
-                char pairCandidate = getOpenBracketPair(c);
-                if(cList.size() == 0 || pairCandidate != cList.get(cList.size()-1)){
+                if(cList.get(cList.size()-1) != getOpenBracketPair(c)){
                     return false;
                 }
                 cList.remove(cList.size()-1);
             }
         }
-        if(cList.size() != 0){
+        if(cList.size()==0){
+            return true;
+        }else{
             return false;
         }
-        return true;
     }
     private boolean isOpenBracket(char c){
         if(c ==')'||c =='}'||c ==']'){
