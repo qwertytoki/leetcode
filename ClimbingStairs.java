@@ -1,19 +1,20 @@
 class Solution {
     public int climbStairs(int n) {
+        if(n==0) return 1;
         int num = n;
         int count = 0;
-        inr result = 1;
-        while(num < 2){
+        int result = (n%2==0)?2:1;
+        while(num > 2){
             count++;
             num= num-2;
         }
         for(int i=1;i<=count;i++){
             result = result + conbination(--n, i);
         }
-        return result+1;
+        return result;
     }
-    private int conbination(int n,int r){
-        int result = 0;
+    private int combination(int n,int r){
+        long result = 1;
         for(int i = 1;i<=r;i++){
             result = result * (n--)/i;
         }
