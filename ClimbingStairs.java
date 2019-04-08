@@ -9,7 +9,7 @@ class Solution {
             num= num-2;
         }
         for(int i=1;i<=count;i++){
-            result = result + conbination(--n, i);
+            result = result + combination(--n, i);
         }
         return result;
     }
@@ -18,6 +18,6 @@ class Solution {
         for(int i = 1;i<=r;i++){
             result = result * (n--)/i;
         }
-        return result;
+        return (int)result;
     }
 }
