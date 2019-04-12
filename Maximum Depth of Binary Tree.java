@@ -21,10 +21,13 @@ class Solution {
         
     }
     private int dive(TreeNode root,int depth){
-        if(root.right== null&&root.left==null){
+        if(root == null){
             return depth;
         }
         depth++;
+        if(root.right== null&&root.left==null){
+            return depth;
+        }
         int right = dive(root.right,depth);
         int left = dive(root.left,depth);
         return right>=left ? right:left;
