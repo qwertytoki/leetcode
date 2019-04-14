@@ -11,10 +11,11 @@ class Solution {
         for(int i=1;i<numRows;i++){
             List<Integer> list = new ArrayList<>();
             List<Integer> previousList = result.get(i-1);
-            for(int j=0;j<=i;j++){
-                int column = (j==0)?previousList.get(j):previousList.get(j-1);
+            for(int j=0;j<i;j++){
+                int column = (j==0)?previousList.get(j):previousList.get(j)+previousList.get(j-1);
                 list.add(column);
             }
+            list.add(1);
             result.add(list);
         }
         return result;
