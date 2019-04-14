@@ -23,9 +23,9 @@ class Solution {
             if(prices[i]>currentMaxSell){
                 currentMaxSell = prices[i];
             }else{
-                profit = currentMaxSell - currentMinBuy;
-                currentMinBuy = 0;
-                currentMaxSell = 0;
+                profit += currentMaxSell - currentMinBuy;
+                currentMinBuy = prices[i];
+                currentMaxSell = prices[i];
             }
             
         }
