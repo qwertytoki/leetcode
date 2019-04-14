@@ -3,13 +3,17 @@ class Solution {
         // 最も安い日に買って最も高い日に売る
         // 一番簡単なのは総当たり戦やってく方式
         // 最大値と最小値を持ってればいいかな
-        if(prices==null){
+        // 比較対象が2つ以上あったとき、困るな。
+        // 現時点での最高利益額を保存しておく必要がある
+        if(prices==null||prices.length ==0){
             return 0;
         }
         int currentMinBuy = prices[0];
         int currentMaxSell = prices[0];
-        for(int i=1;i<prices.size;i++){
+        int currentMaxProfit = currentMaxSell-currentMinBuy;
+        for(int i=1;i<prices.length;i++){
             if(prices[i]<currentMinBuy){
+                currentMaxProfit = Math.max(currentMaxProfit,currentMaxSell-currentMinBuy);
                 currentMinBuy = prices[i];
                 currentMaxSell = prices[i];
             }
@@ -17,6 +21,6 @@ class Solution {
                 currentMaxSell = prices[i];
             }
         }
-        return currentMaxSell-currentMinBuy;
+        return Math.max(currentMaxProfit,currentMaxSell-currentMinBuy);
     }
 }
