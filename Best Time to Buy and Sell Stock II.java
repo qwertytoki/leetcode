@@ -16,6 +16,7 @@ class Solution {
         int profit = 0;
         for(int i=1;i<prices.length;i++){
             if(prices[i]<currentMinBuy){
+                profit += currentMaxSell - currentMinBuy;
                 currentMinBuy = prices[i];
                 currentMaxSell = prices[i];
                 continue;
@@ -29,6 +30,7 @@ class Solution {
             }
             
         }
+        profit += currentMaxSell - currentMinBuy;
         return profit;
     }
 }
