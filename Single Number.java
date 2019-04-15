@@ -1,18 +1,18 @@
+import java.util.Set;
+
 class Solution {
     public int singleNumber(int[] nums) {
         // 配列ソートする
         // 前の数字と違えばreturn
         // 前の数字と同じなら次の数字を入れて進む
-
-        Arrays.sort(nums);
-        int resultCandi = nums[0];
-        for(int i=1;i<nums.length;i++){
-            if(nums[i]!=resultCandi){
-                return resultCandi;
+        Set<Integer>numsSet = new HashSet<>();
+        for(int num:nums){
+            if(!numsSet.contains(num)){
+                numsSet.add(num);
             }else{
-                resultCandi= ++i;
+                numsSet.remove(num);
             }
         }
-        return resultCandi;
+        return numsSet.stream().findFirst().get();
     }
 }
