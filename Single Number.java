@@ -13,6 +13,7 @@ class Solution {
                 numsSet.remove(num);
             }
         }
-        return numsSet.stream().findFirst().get();
+        Iterator<Integer> iterator = numsSet.iterator();
+        return iterator.next();
     }
 }
