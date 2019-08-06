@@ -26,7 +26,7 @@ class Solution {
                 stack.push(s);
                 continue;
             }
-            if (bracketMap.get(s) == stackedS) {
+            if (bracketMap.get(s).equals(stackedS)) {
                 stack.pop();
             } else {
                 stack.push(s);
