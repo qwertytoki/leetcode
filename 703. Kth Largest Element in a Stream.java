@@ -1,19 +1,22 @@
 class KthLargest {
-    int[] targetArray;
-    int returnVal = 0;
+    private final PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+    private final int k;    
     public KthLargest(int k, int[] nums) {
-        targetArray = nums;
-        targetArray = Arrays.sort(targetArray,Collection.reverseOrder());
-        returnVal = targetArray[k];
+        this.k = k;
+        for (Integer i : nums) {
+            minHeap.add(i);
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
     }
     
     public int add(int val) {
-        targetArray.add(val);
-        if(val<returnVal){
-            return returnVal;
-        }
-        targetArray = Arrays.sort(targetArray,Collection.reverseOrder());
-        returnVal = targetArray[k];
+        minHeap.add(val);
+        if (minHeap.size() > k) {
+            minHeap.poll();
+        }        
+        return minHeap.peek();
     }
 }
 
