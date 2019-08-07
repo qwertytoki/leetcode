@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 
 class Solution {
@@ -24,17 +25,15 @@ class Solution {
 
     private boolean isContainsSameChar(String a, String b) {
         if(a.length()!=b.length()) return false;
-        for(String aPart:a.split("")){
-            boolean bool = false;
-            for(String bPart:b.split("")){
-                if(aPart.equals(bPart)){
-                    bool = true;
-                }
-            }
-            if(!bool){
-                return false;
-            }
-        }
-        return true;
+        String[] arrayA = a.split("");
+        String[] arrayB = a.split("");
+
+        Arrays.sort(arrayA);
+        Arrays.sort(arrayB);
+
+        a = String.join("",arrayA);
+        b = String.join("",arrayB);
+        if(a.equals(b))return true;
+        return false;
     }
 }
