@@ -15,16 +15,15 @@ class Solution {
         boolean isStart = false;
         for(String s:bArray){
             int i =Integer.parseInt(s);
-            if(!isStart && i==0){
-                continue;
-            }else if(!isStart && i==1){
-                isStart = true;
-                continue;
-            }else if(isStart && i==0){
-                currentCount++;    
-            }else if(isStart && i==1){
+            if(!isStart){
+                isStart = i==1?true:false;
+                continue;        
+            }
+            if(i==0){
+                currentCount++;        
+            }else{
                 longestCount = currentCount>longestCount?currentCount:longestCount;
-                currentCount = 0;
+                currentCount = 0;    
             }
         }
         return longestCount;
