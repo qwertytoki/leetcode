@@ -8,9 +8,6 @@ class Solution {
     public int solution(int[] A) {
         // write your code in Java SE 8
         Arrays.sort(A);
-        // for(int i :A){
-        //     System.out.println(i);    
-        // }
         Deque<Integer> stack = new ArrayDeque<>();
         for(int i :A){
             if(stack.peek()==null||stack.peek()!=i){
