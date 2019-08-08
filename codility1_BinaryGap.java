@@ -3,12 +3,11 @@
 
 // you can write to stdout for debugging purposes, e.g.
 // System.out.println("this is a debug message");
-import java.lang.Number;
+import java.lang.Integer;
 
 class Solution {
     public int solution(int N) {
         String binary = Integer.toBinaryString(N);
-        System.out.println(binary);
         String[] bArray = binary.split("");
         int longestCount = 0;
         int currentCount = 0;
