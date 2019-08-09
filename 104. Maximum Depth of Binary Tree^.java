@@ -7,7 +7,7 @@ class Solution {
         if (root == null)
             return 0;
         int right = maxDepth(root.right)+1;
-        int left = maxDepth(root.right)+1;       
+        int left = maxDepth(root.left)+1;       
         return Math.max(right,left);
     }
 }
