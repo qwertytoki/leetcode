@@ -16,12 +16,12 @@ class Solution {
             dq.push(new ListNode(head.val));
             head = head.next;
         }
-        ListNode reversedNode = new ListNode(dq.pop().val);
-        ListNode currentNode = reversedNode;
+        ListNode currentNode = new ListNode(dq.pop().val);
+        ListNode reversedNode = currentNode;
         while(dq.peek()!=null){
-            reversedNode.next= new ListNode(dq.pop().val);
-            reversedNode = reversedNode.next;
+            currentNode.next= new ListNode(dq.pop().val);
+            currentNode = currentNode.next;
         }
-        return currentNode;
+        return reversedNode;
     }
 }
