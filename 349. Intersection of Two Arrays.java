@@ -4,13 +4,17 @@ class Solution {
         for(int i:nums1){
             set.add(i);
         }
-        int[] array = new int[set.size()];
-        int index =0;
+        Set<Integer> matchedSet = new HashSet<>();
         for(int i:set){
-            if(IntStream.of(number).anyMatch(x -> x == i)){
-                array[index]= i;
-                index++;
+            if(IntStream.of(nums2).anyMatch(x -> x == i)){
+                matchedSet.add(i);
             }
+        }
+        int[] array =  new int[matchedSet.size()];
+        int i=0;
+        for(int val:matchedSet){
+            array[i]=val;
+            i++;
         }
         return array;
     }
