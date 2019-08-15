@@ -4,15 +4,14 @@ class Solution {
         for(int i:nums1){
             set.add(i);
         }
-        for(int i:nums2){
-            set.add(i);
-        }
-        int[] intersectedArray = new int[set.size()];
-        int index = 0;
+        int[] array = new int[set.size()];
+        int index =0;
         for(int i:set){
-            intersectedArray[index] = i;
-            index++;
+            if(IntStream.of(number).anyMatch(x -> x == i)){
+                array[index]= i;
+                index++;
+            }
         }
-        return intersectedArray;
+        return array;
     }
 }
